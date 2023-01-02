@@ -1,0 +1,44 @@
+{
+  "name": "cdktf-remote-backend-artifactory",
+  "version": "1.0.0",
+  "main": "main.js",
+  "types": "main.ts",
+  "license": "MPL-2.0",
+  "private": true,
+  "scripts": {
+    "get": "cdktf get",
+    "build": "tsc",
+    "synth": "cdktf synth",
+    "compile": "tsc --pretty",
+    "watch": "tsc -w",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "upgrade": "npm i cdktf@latest cdktf-cli@latest",
+    "upgrade:next": "npm i cdktf@next cdktf-cli@next",
+    "cdktf:plan": "env-cmd cdktf plan",
+    "cdktf:apply": "env-cmd cdktf --auto-approve apply",
+    "cdktf:destroy": "env-cmd cdktf --auto-approve destroy",
+    "tf:init": "env-cmd terraform -chdir=./cdktf.out/stacks/cdktf-remote-backend-artifactory init",
+    "tf:plan": "env-cmd terraform -chdir=./cdktf.out/stacks/cdktf-remote-backend-artifactory plan",
+    "tf:apply": "env-cmd terraform -chdir=./cdktf.out/stacks/cdktf-remote-backend-artifactory apply --auto-approve",
+    "tf:state:pull": "env-cmd terraform -chdir=./cdktf.out/stacks/cdktf-remote-backend-artifactory state pull",
+    "tf:destroy": "env-cmd terraform -chdir=./cdktf.out/stacks/cdktf-remote-backend-artifactory destroy --auto-approve"
+  },
+  "engines": {
+    "node": ">=14.0"
+  },
+  "dependencies": {
+    "@cdktf/provider-azurerm": "4.0.5",
+    "cdktf": "^0.14.3",
+    "constructs": "^10.1.207",
+    "env-cmd": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.5",
+    "@types/node": "^18.11.18",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}
